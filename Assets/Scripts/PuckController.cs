@@ -13,10 +13,11 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private DateTime launchTime;
     private bool ended;
     private float distToGround;
-
     private bool isDragable;
 
     private Vector3 puckSpawnPosition = new Vector3(0, 0.28f, -3);
+
+    private LineRenderer lineRenderer;
 
     public Vector3 getPuckSpawnPosition() {
         return puckSpawnPosition;
@@ -69,9 +70,28 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.005f);
     }
 
+    private void createLineRenderer() {
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.widthMultiplier = 0.1f;
+        lineRenderer.positionCount = 2;
+
+        // A simple 2 color gradient with a fixed alpha of 1.0f.
+        Color c1 = Color.yellow;
+        Color c2 = Color.red;
+        float alpha = 1.0f;
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(c1, 0.0f), new GradientColorKey(c2, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+        );
+        lineRenderer.colorGradient = gradient;
+    }
+
     public void OnBeginDrag(PointerEventData eventData) {
         if(!isDragable) return;
 
+        createLineRenderer();
         updatePuckPosition(eventData.position);
     }
 
@@ -96,6 +116,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             gameObject.GetComponent<Rigidbody>().AddForce(force);
             launched = true;
             isDragable = false;
+            Destroy(lineRenderer);
         }
     }
 
@@ -128,6 +149,8 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
 
             transform.position = puckDrag;
+            lineRenderer.SetPosition(0, puckDrag);
+            lineRenderer.SetPosition(1, puckSpawnPosition);
         }
     }
 }

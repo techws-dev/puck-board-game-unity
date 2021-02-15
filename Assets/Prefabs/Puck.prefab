@@ -127,4 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  LinePrefab: {fileID: 6172445044954590739, guid: f0d6e5e9fc68af4b2960566c56a642bb, type: 3}
   player: 0
