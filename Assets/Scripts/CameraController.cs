@@ -5,34 +5,35 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private GameObject puck;
+    private PuckController puckController;
     private Vector3 startPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        startPosition = new Vector3(0, 2, -6);
+        startPosition = new Vector3(0, 2, -4.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(puck) {
+        if(puckController.isLaunched()) {
             // follow the puck on z axis only
             float x = gameObject.transform.position.x;
             float y = gameObject.transform.position.y;
-            float z = puck.transform.position.z - 2;
+            float z = puck.transform.position.z - 1.5f;
 
             // don't follow the puck if it goes out of the board
-            if(z < 2) {
+            if(z > startPosition.z && z < 2) {
                 gameObject.transform.position = new Vector3(x, y, z);    
             }
-        } else {
-            gameObject.transform.position = startPosition;
         }
     }
 
     // Set the puck to follow
     public void setPuckToFollow(GameObject puckToFollow) {
         puck = puckToFollow;
+        puckController = puck.GetComponent<PuckController>();
+        gameObject.transform.position = startPosition;
     }
 }

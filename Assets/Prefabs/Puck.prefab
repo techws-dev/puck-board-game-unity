@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5854454479284956039}
   - component: {fileID: 5854454479284956038}
   - component: {fileID: 5854454479284956025}
-  - component: {fileID: 5854454479284956034}
+  - component: {fileID: 7559745363011454813}
   m_Layer: 0
   m_Name: Puck
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &5854454479284956034
+--- !u!114 &7559745363011454813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,6 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b887cff92558854e6bfa5d4490a1e95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingLinePrefab: {fileID: 7845807247529027662, guid: 0fd90fb6d8553411c883aff4cadcfad4, type: 3}
   gameManager: {fileID: 0}
   player: 0

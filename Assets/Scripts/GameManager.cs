@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject board;
     public GameObject puckPrefab;
     public GameObject mainCamera;
     public Material player1Material;
     public Material player2Material;
-    private Vector3 puckSpawnPosition = new Vector3(0, 0.05f, -3);
     private int currentPlayer = 1;
     private int numberPlayers = 2;
     private int pucksLeft = 10;
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Debug.Log("Start the game");
-
+        
         InitGame();
     }
 
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     // Create a puck
     void createPuck() {
         // Create a puck
+        Vector3 puckSpawnPosition = puckPrefab.GetComponent<PuckController>().getPuckSpawnPosition();
         GameObject puck = Instantiate(puckPrefab, puckSpawnPosition, Quaternion.identity);
 
         // Associate objects
