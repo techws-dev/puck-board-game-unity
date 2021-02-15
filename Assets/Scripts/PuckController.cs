@@ -34,7 +34,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         ended = false;
         distToGround = 0.22f;
         isDragable = false;
-        forceFactor = 1250.0f;
+        forceFactor = 1400.0f;
     }
 
     // Update is called once per frame
