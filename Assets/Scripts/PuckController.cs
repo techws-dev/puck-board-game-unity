@@ -111,6 +111,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         if ( distance <= 0.1f ) {
             transform.position = puckSpawnPosition;
         } else {
+            launchTime = DateTime.Now;
             Vector3 force = new Vector3(distanceX, 0, distanceZ) * 1200.0f;
             Debug.Log(force);
             gameObject.GetComponent<Rigidbody>().AddForce(force);
