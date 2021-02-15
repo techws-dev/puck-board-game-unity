@@ -14,7 +14,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private bool ended;
     private float distToGround;
     private bool isDragable;
-
+    private float forceFactor;
     private Vector3 puckSpawnPosition = new Vector3(0, 0.28f, -3);
 
     private LineRenderer lineRenderer;
@@ -34,6 +34,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         ended = false;
         distToGround = 0.22f;
         isDragable = false;
+        forceFactor = 1250.0f;
     }
 
     // Update is called once per frame
@@ -112,7 +113,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             transform.position = puckSpawnPosition;
         } else {
             launchTime = DateTime.Now;
-            Vector3 force = new Vector3(distanceX, 0, distanceZ) * 1200.0f;
+            Vector3 force = new Vector3(distanceX, 0, distanceZ) * forceFactor;
             Debug.Log(force);
             gameObject.GetComponent<Rigidbody>().AddForce(force);
             launched = true;
