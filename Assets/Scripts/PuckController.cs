@@ -18,7 +18,9 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private Vector3 puckSpawnPosition = new Vector3(0, 0.28f, -3);
 
     private LineRenderer lineRenderer;
+    private Vector3 lineRendererOffset;
 
+    // Getters
     public Vector3 getPuckSpawnPosition() {
         return puckSpawnPosition;
     }
@@ -35,6 +37,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         distToGround = 0.22f;
         isDragable = false;
         forceFactor = 2500.0f;
+        lineRendererOffset = new Vector3(0,-0.01f,0);
     }
 
     // Update is called once per frame
@@ -89,6 +92,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         lineRenderer.colorGradient = gradient;
     }
 
+    // Drag methods
     public void OnBeginDrag(PointerEventData eventData) {
         if(!isDragable) return;
 
@@ -152,8 +156,8 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
 
             transform.position = puckDrag;
-            lineRenderer.SetPosition(0, puckDrag + new Vector3(0,-0.01f,0));
-            lineRenderer.SetPosition(1, puckSpawnPosition + new Vector3(0,-0.01f,0));
+            lineRenderer.SetPosition(0, puckDrag + lineRendererOffset);
+            lineRenderer.SetPosition(1, puckSpawnPosition + lineRendererOffset);
         }
     }
 }
