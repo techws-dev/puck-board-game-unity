@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 1594332084}
-  puckPrefab: {fileID: 5854454479284956024, guid: e39e4e1bb3464721e922c3e8d29db9c5, type: 3}
+  puckPrefab: {fileID: 3072730668865364735, guid: 501abe3340e18db49bd69fafb1b1d42e, type: 3}
   mainCamera: {fileID: 1453180976}
   player1Material: {fileID: 2100000, guid: c41dfae3484c30dc1a5ea57fd4790566, type: 2}
   player2Material: {fileID: 2100000, guid: e77f460a7c5d0f785a7ea96ed056af99, type: 2}
