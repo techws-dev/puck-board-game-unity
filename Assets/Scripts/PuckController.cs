@@ -34,7 +34,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         ended = false;
         distToGround = 0.22f;
         isDragable = false;
-        forceFactor = 1400.0f;
+        forceFactor = 2500.0f;
     }
 
     // Update is called once per frame
@@ -74,8 +74,8 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private void createLineRenderer() {
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.widthMultiplier = 0.1f;
-        lineRenderer.positionCount = 2;
+        lineRenderer.startWidth = 0.0f;
+        lineRenderer.endWidth = 0.1f;
 
         // A simple 2 color gradient with a fixed alpha of 1.0f.
         Color c1 = Color.yellow;
@@ -105,6 +105,8 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnEndDrag(PointerEventData eventData) {
         if(!isDragable) return;
 
+        Destroy(lineRenderer);
+
         float distanceX = puckSpawnPosition.x - transform.position.x;
         float distanceZ = puckSpawnPosition.z - transform.position.z;
         float distance = Mathf.Sqrt(distanceX*distanceX + distanceZ*distanceZ);
@@ -118,7 +120,6 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             gameObject.GetComponent<Rigidbody>().AddForce(force);
             launched = true;
             isDragable = false;
-            Destroy(lineRenderer);
         }
     }
 
@@ -151,8 +152,8 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
 
             transform.position = puckDrag;
-            lineRenderer.SetPosition(0, puckDrag);
-            lineRenderer.SetPosition(1, puckSpawnPosition);
+            lineRenderer.SetPosition(0, puckDrag + new Vector3(0,-0.01f,0));
+            lineRenderer.SetPosition(1, puckSpawnPosition + new Vector3(0,-0.01f,0));
         }
     }
 }
