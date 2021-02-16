@@ -550,22 +550,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5632d3268f0c9e7159460b915e21b3ab, type: 3}
   m_PrefabInstance: {fileID: 1833495710}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1594332085
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594332084}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!64 &1594332088
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -705,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5632d3268f0c9e7159460b915e21b3ab, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5632d3268f0c9e7159460b915e21b3ab, type: 3}
@@ -785,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 1594332084}
-  puckPrefab: {fileID: 3072730668865364735, guid: 501abe3340e18db49bd69fafb1b1d42e, type: 3}
+  puckPrefab: {fileID: 8448997543344241645, guid: e2e996e6079538665bdabf8eeae88e21, type: 3}
   mainCamera: {fileID: 1453180976}
   player1Material: {fileID: 2100000, guid: c41dfae3484c30dc1a5ea57fd4790566, type: 2}
   player2Material: {fileID: 2100000, guid: e77f460a7c5d0f785a7ea96ed056af99, type: 2}
