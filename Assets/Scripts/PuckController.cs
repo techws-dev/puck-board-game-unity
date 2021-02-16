@@ -36,7 +36,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         ended = false;
         distToGround = 0.22f;
         isDragable = false;
-        forceFactor = 2500.0f;
+        forceFactor = 80.0f;
         lineRendererOffset = new Vector3(0,-0.01f,0);
     }
 
