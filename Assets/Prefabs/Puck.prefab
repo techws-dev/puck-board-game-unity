@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8448997543344241635}
   - component: {fileID: 8448997543344241632}
   - component: {fileID: 8448997543344241644}
-  - component: {fileID: -7996458265170440626}
+  - component: {fileID: 3148598634473586428}
   m_Layer: 0
   m_Name: Puck
   m_TagString: Untagged
@@ -114,7 +114,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: -1
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &-7996458265170440626
+--- !u!114 &3148598634473586428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

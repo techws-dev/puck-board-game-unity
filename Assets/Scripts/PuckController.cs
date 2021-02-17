@@ -15,7 +15,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private float distToGround;
     private bool isDragable;
     private float forceFactor;
-    private Vector3 puckSpawnPosition = new Vector3(0, 0.28f, -3);
+    private Vector3 puckSpawnPosition = new Vector3(0, 0.33f, -3);
 
     private LineRenderer lineRenderer;
     private Vector3 lineRendererOffset;
@@ -36,14 +36,13 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         ended = false;
         distToGround = 0.22f;
         isDragable = false;
-        forceFactor = 60.0f;
+        forceFactor = 55.0f;
         lineRendererOffset = new Vector3(0,-0.01f,0);
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if(!launched && isGrounded()) {
             isDragable = true;
         }
