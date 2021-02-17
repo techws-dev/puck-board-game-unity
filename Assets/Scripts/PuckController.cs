@@ -120,7 +120,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         } else {
             launchTime = DateTime.Now;
             Vector3 force = new Vector3(distanceX, 0, distanceZ) * forceFactor;
-            Debug.Log(force);
+            //Debug.Log(force);
             gameObject.GetComponent<Rigidbody>().AddForce(force);
             launched = true;
             isDragable = false;

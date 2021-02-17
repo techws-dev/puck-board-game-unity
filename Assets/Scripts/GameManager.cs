@@ -7,11 +7,13 @@ public class GameManager : MonoBehaviour
     public GameObject board;
     public GameObject puckPrefab;
     public GameObject mainCamera;
+
     public Material player1Material;
     public Material player2Material;
     private int currentPlayer = 1;
     private int numberPlayers = 2;
     private int pucksLeft = 10;
+    private int[] scores;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
         numberPlayers = 2;
         currentPlayer = 0;
         pucksLeft = numberPlayers * 5;
+        scores = new int[numberPlayers];
 
         NextPlayer();
     }
@@ -64,9 +67,20 @@ public class GameManager : MonoBehaviour
 
     // Change player
     void NextPlayer() {
+        int index=1;
+        foreach (int score in scores) {
+            Debug.Log("Score Player " + index + ": " + score);
+            index++;
+        }
+
         currentPlayer = (currentPlayer % numberPlayers) + 1;
         Debug.Log("Player:" + currentPlayer);
 
         createPuck();
+    }
+
+    // Add points to player
+    void AddPoints((int playerIndex, int value) args) {
+        scores[args.playerIndex] += args.value;
     }
 }
