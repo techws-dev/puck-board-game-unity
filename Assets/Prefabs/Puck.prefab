@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8448997543344241634}
   - component: {fileID: 8448997543344241635}
   - component: {fileID: 8448997543344241632}
-  - component: {fileID: 8448997543344241644}
-  - component: {fileID: 3148598634473586428}
+  - component: {fileID: -1781859295881894227}
+  - component: {fileID: 4512411268810068265}
   m_Layer: 0
   m_Name: Puck
   m_TagString: Untagged
@@ -100,21 +100,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &8448997543344241644
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8448997543344241645}
-  m_Material: {fileID: 13400000, guid: a7158e669c0f1ff5bb50d02c772d257b, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: -1
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &3148598634473586428
+--- !u!114 &-1781859295881894227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,3 +114,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   player: 0
+--- !u!64 &4512411268810068265
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448997543344241645}
+  m_Material: {fileID: 13400000, guid: a7158e669c0f1ff5bb50d02c772d257b, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}

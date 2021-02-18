@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
     void createPuck() {
         // Create a puck
         Vector3 puckSpawnPosition = puckPrefab.GetComponent<PuckController>().getPuckSpawnPosition();
-        Debug.Log(puckSpawnPosition);
         GameObject puck = Instantiate(puckPrefab, puckSpawnPosition, Quaternion.identity);
 
         // Associate objects
