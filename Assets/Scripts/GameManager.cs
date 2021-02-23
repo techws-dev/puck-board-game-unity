@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject board;
     public GameObject puckPrefab;
     public GameObject mainCamera;
+
+    public Text player1ScoreText;
+    public Text player2ScoreText;
+    public Text resultText;
 
     public Material player1Material;
     public Material player2Material;
@@ -67,11 +72,21 @@ public class GameManager : MonoBehaviour
 
     // Change player
     void NextPlayer() {
+        if( pucksLeft == 0 ) {
+            EndOfGame();
+        }
+
+        // Decrement pucks count
+        pucksLeft--;
+
         int index=1;
         foreach (int score in scores) {
             Debug.Log("Score Player " + index + ": " + score);
             index++;
         }
+
+        player1ScoreText.text = scores[0].ToString();
+        player2ScoreText.text = scores[1].ToString();
 
         currentPlayer = (currentPlayer % numberPlayers) + 1;
         Debug.Log("Player:" + currentPlayer);
@@ -82,5 +97,16 @@ public class GameManager : MonoBehaviour
     // Add points to player
     void AddPoints((int playerIndex, int value) args) {
         scores[args.playerIndex] += args.value;
+    }
+
+    // End of game : show the winner or tied
+    void EndOfGame() {
+        if (scores[0] > scores[1]) {
+            resultText.text = "Player 1 wins !!!";
+        } else if (scores[1] > scores[0]) {
+            resultText.text = "Player 2 wins !!!";
+        } else {
+            resultText.text = "Players are tied.";
+        }
     }
 }
