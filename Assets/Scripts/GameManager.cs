@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
     void NextPlayer() {
         if( pucksLeft == 0 ) {
             EndOfGame();
+            return;
         }
 
         // Decrement pucks count
