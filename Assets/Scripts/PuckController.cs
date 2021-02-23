@@ -18,7 +18,6 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private Vector3 puckSpawnPosition = new Vector3(0, 0.33f, -3);
 
     private LineRenderer lineRenderer;
-    private Vector3 lineRendererOffset;
 
     // Getters
     public Vector3 getPuckSpawnPosition() {
@@ -36,13 +35,13 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         ended = false;
         distToGround = 0.22f;
         isDragable = false;
-        forceFactor = 55.0f;
-        lineRendererOffset = new Vector3(0,-0.01f,0);
+        forceFactor = 20.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(!launched && isGrounded()) {
             isDragable = true;
         }
@@ -76,13 +75,13 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private void createLineRenderer() {
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.startWidth = 0.0f;
-        lineRenderer.endWidth = 0.1f;
+        lineRenderer.startWidth = 0.01f;
+        lineRenderer.endWidth = 0.01f;
 
         // A simple 2 color gradient with a fixed alpha of 1.0f.
-        Color c1 = Color.yellow;
-        Color c2 = Color.red;
-        float alpha = 1.0f;
+        Color c1 = Color.black;
+        Color c2 = Color.black;
+        float alpha = 0.8f;
         Gradient gradient = new Gradient();
         gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(c1, 0.0f), new GradientColorKey(c2, 1.0f) },
@@ -114,7 +113,7 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         float distanceZ = puckSpawnPosition.z - transform.position.z;
         float distance = Mathf.Sqrt(distanceX*distanceX + distanceZ*distanceZ);
 
-        if ( distance <= 0.1f ) {
+        if ( distance <= 0.2f ) {
             transform.position = puckSpawnPosition;
         } else {
             launchTime = DateTime.Now;
@@ -155,8 +154,8 @@ public class PuckController : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
 
             transform.position = puckDrag;
-            lineRenderer.SetPosition(0, puckDrag + lineRendererOffset);
-            lineRenderer.SetPosition(1, puckSpawnPosition + lineRendererOffset);
+            lineRenderer.SetPosition(0, puckDrag);
+            lineRenderer.SetPosition(1, puckSpawnPosition);
         }
     }
 }
