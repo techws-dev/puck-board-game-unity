@@ -2,8 +2,10 @@
 A puck board game made with Unity
 
 
-### Work in progress
+This game is my first attempt to make a 3d game.
 
-![demo_video](https://github.com/techws-dev/puck-board-game-unity/blob/main/demo_video.gif)
+![screenshot](https://github.com/techws-dev/puck-board-game-unity/blob/main/screenshot.png)
 
 This game is a 2 or more players game, the goal is to throw the pucks in the holes.
+
+Physics are not great for that kind of game, you could see some weird collisions.
